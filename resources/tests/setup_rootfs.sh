@@ -33,15 +33,15 @@ EOF
     # by the CI.
     cp "$RESOURCE_DIR/fcnet-setup.sh"  "/usr/local/bin/"
     chmod +x /usr/local/bin/fcnet-setup.sh
-    touch /etc/systemd/system/fcnet.service
-cat > /etc/systemd/system/fcnet.service << EOF
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/fcnet-setup.sh
-[Install]
-WantedBy=sshd.service
-EOF
-    ln -s /etc/systemd/system/fcnet.service /etc/systemd/system/sysinit.target.wants/fcnet.service
+#     touch /etc/systemd/system/fcnet.service
+# cat > /etc/systemd/system/fcnet.service << EOF
+# [Service]
+# Type=oneshot
+# ExecStart=/usr/local/bin/fcnet-setup.sh
+# [Install]
+# WantedBy=sshd.service
+# EOF
+#     ln -s /etc/systemd/system/fcnet.service /etc/systemd/system/sysinit.target.wants/fcnet.service
 
     # Disable resolved and ntpd
     #
