@@ -2180,7 +2180,7 @@ cmd_build_rootfs() {
 img_file="$ROOTFS_DIR/$ROOTFS_NAME"
 resource_dir="/firecracker/resources/tests"
 mnt_dir="$MNT_DIR"
-dirs="bin etc home lib lib64 opt root sbin usr"
+dirs="bin etc home lib lib64 opt root sbin usr var"
 
 source $resource_dir/setup_rootfs.sh
 
