@@ -69,7 +69,7 @@ setup_specialized_rootfs() {
     BUILD_DIR="$1"
     RESOURCE_DIR="$2"
 
-    packages="iperf3 curl fio iproute2"
+    packages="iperf3 curl fio iproute2 cloud-init"
     if [ "$(uname -m)" = "x86_64" ]; then
         packages="$packages cpuid"
     fi
