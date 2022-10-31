@@ -11,12 +11,15 @@ prepare_fc_rootfs() {
     SSH_DIR="$BUILD_DIR/ssh"
     RESOURCE_DIR="$2"
 
-    packages="udev systemd-sysv openssh-server iproute2 msr-tools"
+    packages="udev systemd-sysv openssh-server iproute2 msr-tools cloud-init"
     apt-get update
     apt-get install -y --no-install-recommends $packages
 
     # Set a hostname.
     echo "ubuntu-fc-uvm" > "/etc/hostname"
+
+    mkdir -p /etc/cloud
+    touch /etc/cloud/cloud-init.disabled
 
     # The serial getty service hooks up the login prompt to the kernel console at
     # ttyS0 (where Firecracker connects its serial console).
@@ -69,7 +72,7 @@ setup_specialized_rootfs() {
     BUILD_DIR="$1"
     RESOURCE_DIR="$2"
 
-    packages="iperf3 curl fio iproute2 cloud-init"
+    packages="iperf3 curl fio iproute2"
     if [ "$(uname -m)" = "x86_64" ]; then
         packages="$packages cpuid"
     fi
