@@ -11,7 +11,7 @@ prepare_fc_rootfs() {
     SSH_DIR="$BUILD_DIR/ssh"
     RESOURCE_DIR="$2"
 
-    packages="udev systemd-sysv openssh-server iproute2 msr-tools"
+    packages="udev systemd-sysv openssh-server iproute2 msr-tools cloud-init"
     apt-get update
     apt-get install -y --no-install-recommends $packages
 
@@ -66,7 +66,7 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin root -o '-p -- \\u' --keep-baud 115200,38400,9600 %I $TERM
 EOF
     passwd -d root
-    apt-get install -y cloud-init unminimize
+    unminimize
 }
 
 setup_specialized_rootfs() {
