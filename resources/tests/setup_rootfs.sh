@@ -18,8 +18,8 @@ prepare_fc_rootfs() {
     # Set a hostname.
     echo "ubuntu-fc-uvm" > "/etc/hostname"
 
-    mkdir -p /etc/cloud
-    touch /etc/cloud/cloud-init.disabled
+    # mkdir -p /etc/cloud
+    # touch /etc/cloud/cloud-init.disabled
 
     # The serial getty service hooks up the login prompt to the kernel console at
     # ttyS0 (where Firecracker connects its serial console).
