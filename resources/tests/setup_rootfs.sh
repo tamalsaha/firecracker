@@ -66,7 +66,7 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin root -o '-p -- \\u' --keep-baud 115200,38400,9600 %I $TERM
 EOF
     passwd -d root
-    unminimize
+    yes | unminimize
 }
 
 setup_specialized_rootfs() {
